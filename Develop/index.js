@@ -1,3 +1,6 @@
+const readmeDataArgs = process.argv.slice(2, process.argv.length);
+const [projectTitle, projectDesc] = readmeDataArgs;
+
 // TODO: Include packages needed for this application
 
 // TODO: Create an array of questions for user input
@@ -12,19 +15,32 @@
 // Function call to initialize app
 // init();
 
-const readmeDataArgs = process.argv.slice(2, process.argv.length);
-console.log(readmeDataArgs);
+const generateReadMe = (projectTitle, projectDesc) => {
+    return `
+    # ${projectTitle}
 
-const printReadMeData = readmeDataArr => {
-    for (let i = 0; i < readmeDataArr.length; i += 1) {
-        console.log(readmeDataArr[i]);
-    }
+    ## Description
+    ${projectDesc}
 
-    console.log('================');
+    ## Table of Contents (optional)
 
-    readmeDataArr.forEach((readmeItem) => {
-        console.log(readmeItem)
-    });
+    ## Installation
+
+    ## Usage
+
+    ## License
+
+    ## Contributing
+
+    ## Tests
+
+    ## Questions
+
+    `;
 };
 
-printReadMeData(readmeDataArgs);
+FileSystem.writeFile('README.md', generateReadMe(projectTitle, projectDesc), err => {
+    if (err) throw err;
+
+    console.log('README complete, check out README.md to see the output.');
+});
