@@ -2,10 +2,12 @@ const generateReadMe = (projectTitle, projectDesc) => {
     return `
 # ${projectTitle}
 
+![GitHub](https://img.shields.io/badge/license-${license}-green)
+
 ## Description
 ${projectDesc}
 
-## Table of Contents (optional)
+## Table of Contents
 - [Installation](#installation)
 - [Usage](#usage)
 - [Credits](#credits)
@@ -22,7 +24,7 @@ ${projectDesc}
 ## Tests
 
 ## Questions
-
+*For any questions, please contact me at ${githubUser} or ${email}.*
     `;
 };
 
