@@ -1,8 +1,9 @@
-
-# run-buddy
+const generateReadMe = (projectTitle, projectDesc) => {
+    return `
+# ${projectTitle}
 
 ## Description
-app for runners
+${projectDesc}
 
 ## Table of Contents (optional)
 - [Installation](#installation)
@@ -22,4 +23,8 @@ app for runners
 
 ## Questions
 
-    
+    `;
+};
+
+
+module.exports = generateReadMe;
