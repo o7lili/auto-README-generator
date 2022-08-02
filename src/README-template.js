@@ -1,11 +1,14 @@
-const generateReadMe = (projectTitle, projectDesc) => {
-    return `
-# ${projectTitle}
+module.exports = templateData => {
+    // destructure page data by section
+    const { readmeBody, gitHub, ...questions } = templateData;
 
-![GitHub](https://img.shields.io/badge/license-${license}-green)
+    return `
+# ${readmeBody.title}
+
+![GitHub](https://img.shields.io/badge/license-${readmeBody.license}-green)
 
 ## Description
-${projectDesc}
+${readmeBody.description}
 
 ## Table of Contents
 - [Installation](#installation)
@@ -14,19 +17,22 @@ ${projectDesc}
 - [License](#license)
 
 ## Installation
+${readmeBody.installation}
 
 ## Usage
+${readmeBody.usage}
 
 ## License
+${readmeBody.license}
 
 ## Contributing
+${readmeBody.contributing}
 
 ## Tests
+${readmeBody.tests}
 
 ## Questions
-*For any questions, please contact me at ${githubUser} or ${email}.*
+*For any questions, please contact me at ${gitHub.githubUser} or ${gitHub.email}.*
     `;
 };
 
-
-module.exports = generateReadMe;

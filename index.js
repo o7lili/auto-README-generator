@@ -1,9 +1,9 @@
 const inquirer = require('inquirer');
-// const fs = require('fs');
-// const generateReadMe = require('./src/README-template');
+const fs = require('fs');
+const generateReadMe = require('./src/README-template');
 
 // // TODO: Create an array of questions for user input
-// const pageREADME = generateReadMe(projectTitle, projectDesc);
+// const pageREADME = generateReadMe(title, description);
 
 
 // fs.writeFile('./README.md', pageREADME, err => {
@@ -50,14 +50,14 @@ const promptProject = projectData => {
     =================
     `);
 
-    if (!projectData.readmeArr) {
-        projectData.readmeArr = [];
+    if (!projectData.readmeBody) {
+        projectData.readmeBody = [];
     }
     return inquirer
         .prompt([
             {
                 type: 'input',
-                name: 'Project Title',
+                name: 'title',
                 message: 'What is the title of your project?',
                 validate: nameInput => {
                     if (nameInput) {
@@ -70,7 +70,7 @@ const promptProject = projectData => {
             },
             {
                 type: 'input',
-                name: 'Project Description',
+                name: 'description',
                 message: 'Provide a description of your project:',
                 validate: nameInput => {
                     if (nameInput) {
@@ -83,7 +83,7 @@ const promptProject = projectData => {
             },
             {
                 type: 'input',
-                name: 'Installation',
+                name: 'installation',
                 message: 'Steps to install the project:',
                 validate: nameInput => {
                     if (nameInput) {
@@ -96,7 +96,7 @@ const promptProject = projectData => {
             },
             {
                 type: 'input',
-                name: 'Usage',
+                name: 'usage',
                 message: 'Instructions and examples for use of your project:',
                 validate: nameInput => {
                     if (nameInput) {
@@ -109,13 +109,13 @@ const promptProject = projectData => {
             },
             {
                 type: 'list',
-                name: 'License',
+                name: 'license',
                 message: 'Choose a license for your project:',
                 choices: ['MIT', 'Apache', 'BSD', 'GNU', 'Mozilla']
             },
             {
                 type: 'input',
-                name: 'Contributing',
+                name: 'contributing',
                 message: 'Provide guidelines for how other developers can contribute to your project:',
                 validate: nameInput => {
                     if (nameInput) {
@@ -128,7 +128,7 @@ const promptProject = projectData => {
             },
             {
                 type: 'input',
-                name: 'Tests',
+                name: 'tests',
                 message: 'Provide instructions and examples on how to run tests on your project:',
                 validate: nameInput => {
                     if (nameInput) {
@@ -139,11 +139,21 @@ const promptProject = projectData => {
                     }
                 }    
             }
-        ]);
+        ])
+        .then(userData => {
+            projectData.readmeBody.push(userData);
+            return projectData;
+        });
 };
 
 promptUser()
 .then(promptProject)
 .then(projectData => {
-    console.log(projectData);
+    const pageREADME = generateReadMe(projectData);
+
+    // fs.writeFile('./README.md', pageREADME, err => {
+    //   if (err) throw new Error(err);
+
+    //   console.log('README created! Check out README.md in this directory to see it!');
+    // });
 });
