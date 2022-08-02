@@ -27,53 +27,59 @@ const promptUser = () => {
     ]);
 }
 
-const promptProject = () => {
+const promptProject = projectData => {
     console.log(`
     =================
     Add Project info
     =================
     `);
-    return inquirer.prompt([
-        {
-            type: 'input',
-            name: 'Project Title',
-            message: 'What is the title of your project?'
-        },
-        {
-            type: 'input',
-            name: 'Project Description',
-            message: 'Provide a description of your project:'
-        },
-        {
-            type: 'input',
-            name: 'Installation',
-            message: 'Steps to install the project:'
-        },
-        {
-            type: 'input',
-            name: 'Usage',
-            message: 'Instructions and examples for use of your project:'
-        },
-        {
-            type: 'list',
-            name: 'License',
-            message: 'Choose a license for your project:',
-            choices: ['MIT', 'Apache', 'BSD', 'GNU', 'Mozilla']
-        },
-        {
-            type: 'input',
-            name: 'Contributing',
-            message: 'Provide guidelines for how other developers can contribute to your project:'
-        },
-        {
-            type: 'input',
-            name: 'Tests',
-            message: 'Provide instructions and examples on how to run tests on your project:'
-        }
-    ]);
+
+    if (!projectData.readmeArr) {
+        projectData.readmeArr = [];
+    }
+    return inquirer
+        .prompt([
+            {
+                type: 'input',
+                name: 'Project Title',
+                message: 'What is the title of your project?'
+            },
+            {
+                type: 'input',
+                name: 'Project Description',
+                message: 'Provide a description of your project:'
+            },
+            {
+                type: 'input',
+                name: 'Installation',
+                message: 'Steps to install the project:'
+            },
+            {
+                type: 'input',
+                name: 'Usage',
+                message: 'Instructions and examples for use of your project:'
+            },
+            {
+                type: 'list',
+                name: 'License',
+                message: 'Choose a license for your project:',
+                choices: ['MIT', 'Apache', 'BSD', 'GNU', 'Mozilla']
+            },
+            {
+                type: 'input',
+                name: 'Contributing',
+                message: 'Provide guidelines for how other developers can contribute to your project:'
+            },
+            {
+                type: 'input',
+                name: 'Tests',
+                message: 'Provide instructions and examples on how to run tests on your project:'
+            }
+        ]);
 };
 
 promptUser()
-.then(answers => console.log(answers))
 .then(promptProject)
-.then(projectAnswers => console.log(projectAnswers));
+.then(projectData => {
+    console.log(projectData);
+});
