@@ -16,8 +16,8 @@ automatically generates professional README.md file
 install inquirer
 
 ## Usage
-use "node index" to execute app
-walkthrough video: https://drive.google.com/file/d/1sniGDHQzaMVam9BZ2Jvy4qcXdbfuWVKt/view
+- use "node index" to execute app
+- walkthrough video: https://drive.google.com/file/d/1sniGDHQzaMVam9BZ2Jvy4qcXdbfuWVKt/view
 
 ## License
 MIT
