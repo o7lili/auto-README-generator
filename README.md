@@ -9,8 +9,10 @@ automatically generates professional README.md file
 ## Table of Contents
 - [Installation](#installation)
 - [Usage](#usage)
-- [Credits](#credits)
 - [License](#license)
+- [Contributing](#contributing)
+- [Tests](#tests)
+- [Questions](#questions)
 
 ## Installation
 install inquirer
@@ -28,5 +30,5 @@ contact
 answer prompts
 
 ## Questions
-*For any questions, please contact me at github.com/o7lili or lili@email.com.*
+*For any questions, please contact me at https://github.com/o7lili or lili@email.com.*
     

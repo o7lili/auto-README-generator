@@ -33,7 +33,7 @@ ${contributing}
 ${tests}
 
 ## Questions
-*For any questions, please contact me at github.com/${username} or ${email}.*
+*For any questions, please contact me at https://github.com/${username} or ${email}.*
     `;
 };
 
