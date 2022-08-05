@@ -151,9 +151,9 @@ promptUser()
 .then(projectData => {
     const pageREADME = generateReadMe(projectData);
 
-    // fs.writeFile('./README.md', pageREADME, err => {
-    //   if (err) throw new Error(err);
+    fs.writeFile('./README.md', pageREADME, err => {
+      if (err) throw new Error(err);
 
-    //   console.log('README created! Check out README.md in this directory to see it!');
-    // });
+      console.log('README created! Check out README.md in this directory to see it!');
+    });
 });

@@ -1,14 +1,15 @@
 module.exports = templateData => {
     // destructure page data by section
-    const { readmeBody, gitHub, ...questions } = templateData;
+    const { readmeBody, username, email } = templateData;
+    const { title, description, installation, usage, license,contributing, tests} = readmeBody[0];
 
     return `
-# ${readmeBody.title}
+# ${title}
 
-![GitHub](https://img.shields.io/badge/license-${readmeBody.license}-green)
+![GitHub](https://img.shields.io/badge/license-${license}-green)
 
 ## Description
-${readmeBody.description}
+${description}
 
 ## Table of Contents
 - [Installation](#installation)
@@ -17,22 +18,22 @@ ${readmeBody.description}
 - [License](#license)
 
 ## Installation
-${readmeBody.installation}
+${installation}
 
 ## Usage
-${readmeBody.usage}
+${usage}
 
 ## License
-${readmeBody.license}
+${license}
 
 ## Contributing
-${readmeBody.contributing}
+${contributing}
 
 ## Tests
-${readmeBody.tests}
+${tests}
 
 ## Questions
-*For any questions, please contact me at ${gitHub.githubUser} or ${gitHub.email}.*
+*For any questions, please contact me at github.com/${username} or ${email}.*
     `;
 };
 
